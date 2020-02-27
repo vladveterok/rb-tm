@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: rb_tm_production
-  username: rb_tm
+  username: Berezhok
   password: <%= ENV['RB_TM_DATABASE_PASSWORD'] %>
