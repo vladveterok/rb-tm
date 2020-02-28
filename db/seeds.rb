@@ -17,6 +17,14 @@ User.destroy_all
   }
 ])
 
+@testuser = User.create!([
+  {
+    email: 'test@test.test',
+    password: '12345678',
+    password_confirmation: '12345678'
+  }
+])
+
 p "Created #{User.count} user!"
 
 projects = [
