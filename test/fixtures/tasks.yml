@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: false
+  position: 1
+  deadline: 2020-02-28 15:58:34
+  project: one
+
+two:
+  name: MyString
+  status: false
+  position: 1
+  deadline: 2020-02-28 15:58:34
+  project: two
