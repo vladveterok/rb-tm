@@ -43,23 +43,37 @@ tasks = [
   {
     name: 'My first task for first project',
     status: false,
-    position: 01,
+    position: 1,
     project_id: Project.first.id
   },
 
   {
     name: 'My second task for first project',
     status: false,
-    position: 02,
+    position: 2,
     project_id: Project.first.id
   },
 
   {
     name: 'My third task for first project',
     status: false,
-    position: 03,
+    position: 3,
     project_id: Project.first.id
   },
+
+  {
+    name: 'My first task for second project',
+    status: false,
+    position: 1,
+    project_id: Project.second.id
+  },
+
+  {
+    name: 'My second task for second project',
+    status: false,
+    position: 2,
+    project_id: Project.second.id
+  }
 ]
 
 Task.create!(tasks)
