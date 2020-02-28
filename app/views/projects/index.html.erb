@@ -2,9 +2,10 @@
 
 <h1>Projects</h1>
 
+<% @projects.each do |project| %>
+
 <table>
   <thead>
-    
     <tr>
       <th>Name</th>
       <th colspan="2"></th>
@@ -12,7 +13,6 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
       <tr>
         <td><%= project.name %></td>
         <td><%= link_to 'Show', project %></td>
@@ -24,9 +24,10 @@
         <td><%= task.name %></td>
       </tr>
       <% end %>
-    <% end %>
   </tbody>
 </table>
+
+<% end %>
 
 <br>
 

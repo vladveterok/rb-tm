@@ -21,11 +21,11 @@
     <%= form.text_field :user_id %>
   </div>-->
 
-  <div class="field">
-    <%= form.label :user_id %>
+  <div class="field">           <!-- rename to hidden_field -->
+    <%= form.label :user_id %>  <!-- delete? -->
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
-  
+
   <div class="actions">
     <%= form.submit %>
   </div>
