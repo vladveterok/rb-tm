@@ -16,6 +16,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    #@project.user_id = current_user.id
   end
 
   # GET /projects/1/edit
@@ -25,6 +26,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    #render plain: params[:project].inspect
     @project = Project.new(project_params)
 
     respond_to do |format|
