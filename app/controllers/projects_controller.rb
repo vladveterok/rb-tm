@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.all
+    @projects = current_user.projects.order(created_at: :desc).all # MyComments: is the ordering solution is good?
   end
 
   # GET /projects/1
@@ -15,8 +15,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
-    #@project.user_id = current_user.id
+    @project = Project.new # MyComments: delete?
   end
 
   # GET /projects/1/edit
@@ -26,12 +25,12 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    #render plain: params[:project].inspect
+    # MyComments: render plain: params[:project].inspect
     @project = Project.new(project_params)
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice: 'Yay! Project was so created!' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -45,7 +44,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project, notice: 'Yay! Project was so updated!' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -59,7 +58,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: 'Yay! You killed this project!' }
       format.json { head :no_content }
     end
   end

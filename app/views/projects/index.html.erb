@@ -2,6 +2,7 @@
 
 <h1>Projects</h1>
 
+
 <% @projects.each do |project| %>
 
 <table>
@@ -19,8 +20,9 @@
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <% project.tasks.each do |task| %>
+      <% project.tasks.order(created_at: :desc).each do |task| %> <!-- MyComments: is it OK to order tasks in view? -->
       <tr>
+        <td><%= check_box @task, task.status %></td>
         <td><%= task.name %></td>
       </tr>
       <% end %>
@@ -28,6 +30,7 @@
 </table>
 
 <% end %>
+
 
 <br>
 
