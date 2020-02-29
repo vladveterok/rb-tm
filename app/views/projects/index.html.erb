@@ -16,14 +16,18 @@
   <tbody>
       <tr>
         <td><%= project.name %></td>
-        <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?1' },
+          :remote => true, class: 'delete_project' %></td>
       </tr>
+      
       <% project.tasks.order(created_at: :desc).each do |task| %> <!-- MyComments: is it OK to order tasks in view? -->
       <tr>
         <td><%= check_box @task, task.status %></td>
         <td><%= task.name %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you really-relly sure?'},
+          :remote => true, :class => 'delete_task' %></td>
       </tr>
       <% end %>
   </tbody>

@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Yay! Project was so created!' }
+        format.html { redirect_to projects_path, notice: 'Yay! Project was so created!' }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
