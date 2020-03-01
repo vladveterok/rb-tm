@@ -5,7 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects.order(created_at: :desc).all # MyComments: is the ordering solution is good?
+    @projects = current_user.projects.order(created_at: :desc).all
+    @project = Project.new  # TESTING LOGIC 1
+    @tasks = current_user.tasks
+    @task = Task.new
   end
 
   # GET /projects/1
@@ -57,8 +60,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project.destroy
+    @project.tasks.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Yay! You killed this project!' }
+      format.js
       format.json { head :no_content }
     end
   end

@@ -1,41 +1,23 @@
 <p id="notice"><%= notice %></p>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
+<h1>TESTING LOGIC 1</h1> 	<!-- TESTING LOGIC 1 -->
+
+<br> 											<!-- TESTING LOGIC 1 DELETE ALL BELOW IF WENT SOUTH! -->
+
+<div id="projects">
+	<%= render @projects %>
+</div>
+
+<br>
+
+<div id="create_project">
+	<%= render 'form', project: @project %>
+</div>
+
+<br>
+ 											<!-- TESTING LOGIC 1 DELETE ALL ABOVE IF WENT SOUTH! -->
 <h1>Projects</h1>
-
-
-<% @projects.each do |project| %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?1' },
-          :remote => true, class: 'delete_project' %></td>
-      </tr>
-      
-      <% project.tasks.order(created_at: :desc).each do |task| %> <!-- MyComments: is it OK to order tasks in view? -->
-      <tr>
-        <td><%= check_box @task, task.status %></td>
-        <td><%= task.name %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you really-relly sure?'},
-          :remote => true, :class => 'delete_task' %></td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
-
-<% end %>
-
-
 <br>
 
 <%= link_to 'New Project', new_project_path %>

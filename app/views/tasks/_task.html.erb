@@ -1,0 +1,7 @@
+<tr id="tasks">
+  <td><%= check_box task, task.status %></td>
+  <td><%= task.name %></td>
+  <td><%= link_to 'Edit', edit_task_path(task) %></td>
+  <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you really-relly sure?'},
+    remote: true, class: 'delete_task' %></td>
+</tr>
