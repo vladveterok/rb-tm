@@ -16,7 +16,7 @@
 	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "task_form_input" %>
 <% end %>
 
-<ul id="tasks" data-placeholder="uncompleted_tasks">
+<ul id="tasks" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
 	<%= render project.tasks.uncompleted %>
 </ul>
 
