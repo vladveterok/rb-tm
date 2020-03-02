@@ -9,9 +9,9 @@
 	</tbody>
 </table>
 		
-<%= form_with model: @new_task, class: "task-form" do |f| %>
-	<%= f.text_field :name, placeholder: "What are we gonna do, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "form_input" %>
+<%= form_with model: @new_task, class: "task_form" do |f| %>
 	<%= f.hidden_field :project_id, :value => project.id %>
+	<%= f.text_field :name, placeholder: "What are we gonna do, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "form_input" %>
 <% end %>
 
 <ul id="tasks" data-placeholder="uncompleted_tasks" >
