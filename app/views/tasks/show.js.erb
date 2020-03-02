@@ -1,1 +1,7 @@
 document.getElementById("<%= dom_id(@task) %>").outerHTML = "<%= j render "task", task: @task %>"
+
+<% if false %>
+$("<%= dom_id(@task) %>").outerHTML = "<%= escape_javascript(render "task", task: @task) %>";
+
+     <!-- !!!DELETE THIS STUFF!!! -->
+<% end %>

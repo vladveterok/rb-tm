@@ -11,14 +11,14 @@
 		
 <%= form_with model: @new_task, class: "task_form" do |f| %>
 	<%= f.hidden_field :project_id, :value => project.id %>
-	<%= f.text_field :name, placeholder: "What are we gonna do, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "form_input" %>
+	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "task_form_input" %>
 <% end %>
 
-<ul id="tasks" data-placeholder="uncompleted_tasks" >
+<ul id="tasks" data-placeholder="uncompleted_tasks">
 	<%= render project.tasks %>
 </ul>
 
 <ul id="tasks-uncompleted" data-placeholder="completed_tasks">
-	<%= render project.tasks.completed %>
+	<%= render project.tasks.completed.by_position %>
 </ul>
 	

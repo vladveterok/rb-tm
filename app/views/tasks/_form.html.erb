@@ -1,0 +1,10 @@
+<li id="<%= dom_id(task)%>" class="task-list_task">
+  <%= form_with model: task, class: "task_form" do |f| %>
+    <div class="form_field">
+      <%= f.text_field :name, class: "task_form_input", autocomplete: :off %>
+    </div>
+
+    <%= f.submit "Save", class: "button button--primary" %>
+    <%= link_to "Cancel", task_path(task), class: "button link", remote: true %>
+  <% end %>
+</li>

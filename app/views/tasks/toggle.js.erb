@@ -1,7 +1,19 @@
-document.getElementById("<%= dom_id(@task) %>").remove();
+$("<%= dom_id(@task) %>").remove();
 
 <% if @task.completed? %>
-  document.querySelector("[data-placeholder=completed_tasks]").insertAdjacentHTML("afterbegin", "<%= j render "task", task: @task %>");
+  $("[data-placeholder=completed_tasks]").append("<%= escape_javascript(render "task", task: @task) %>");
 <% else %>
-  document.querySelector("[data-placeholder=uncompleted_tasks]").insertAdjacentHTML("beforeend", "<%= j render "task", task: @task %>");
+  $("[data-placeholder=uncompleted_tasks]").append("<%= escape_javascript(render "task", task: @task) %>");
+<% end %>
+
+
+<% if false %>
+     <!-- !!!DELETE THIS STUFF!!! -->
+    document.getElementById("<%= dom_id(@task) %>").remove();
+
+    <% if @task.completed? %>
+    document.querySelector("[data-placeholder=completed_tasks]").insertAdjacentHTML("afterbegin", "<%= j render "task", task: @task %>");
+    <% else %>
+    document.querySelector("[data-placeholder=uncompleted_tasks]").insertAdjacentHTML("beforeend", "<%= j render "task", task: @task %>");
+    <% end %>
 <% end %>

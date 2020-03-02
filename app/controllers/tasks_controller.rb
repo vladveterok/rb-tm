@@ -1,12 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle]
-
-  # GET /tasks
-  # GET /tasks.json
-  def index
-    @tasks = Task.all
-    @new_task = Task.new
-  end
+  respond_to :html, :js
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -21,27 +15,18 @@ class TasksController < ApplicationController
   def edit
   end
 
-  # POST /tasks
-  # POST /tasks.json
   def create
-    #@projects = current_user.projects.all
     @task = Task.new(task_params)
 
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
-        format.js
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
+    unless @task.save
+      head :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /tasks/1
-  # PATCH/PUT /tasks/1.json
   def update
+    if @task.update(task_params)
+      render "show"
+    end
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to projects_path, notice: 'Task was successfully updated.' }
@@ -53,19 +38,12 @@ class TasksController < ApplicationController
     end
   end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.json
-  def destroy
-    @task.destroy
-    respond_to do |format|
-      format.html { redirect_to controller: projects_path, notice: 'Task was successfully destroyed.' }
-      format.js
-      format.json { head :no_content }
-    end
-  end
-
   def toggle
     @task.toggle_completed!
+  end
+
+  def destroy
+    @task.destroy
   end
 
   private

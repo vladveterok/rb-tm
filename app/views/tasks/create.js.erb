@@ -2,10 +2,10 @@ $("[data-placeholder=uncompleted_tasks]").append("<%= escape_javascript(render "
 $("[data-placeholder=new_task_input]").val("");
 
 
-<% if false %>
-$("<%= escape_javascript(render @task)%>").appendTo("#tasks");
+<% if false %> 
+    <!-- !!!DELETE THIS STUFF!!! -->
+    $("<%= escape_javascript(render @task)%>").appendTo("#tasks");
 
-document.querySelector("[data-placeholder=uncompleted_tasks]").insertAdjacentHTML("beforeend", "<%= j render "task", task: @task %>");
-document.querySelector("[data-placeholder=new_task_input]").value = "";
-
+    document.querySelector("[data-placeholder=uncompleted_tasks]").insertAdjacentHTML("beforeend", "<%= j render "task", task: @task %>");
+    document.querySelector("[data-placeholder=new_task_input]").value = "";
 <% end %>
