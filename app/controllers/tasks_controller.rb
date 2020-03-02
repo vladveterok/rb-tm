@@ -27,15 +27,6 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       render "show"
     end
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to projects_path, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def toggle

@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  respond_to :html, :js
 
   # GET /projects
   # GET /projects.json
@@ -28,14 +29,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to projects_path, notice: 'Yay! Project was so created!' }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    unless @project.save
+      head :unprocessable_entity
     end
   end
 
@@ -57,14 +52,8 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.tasks.destroy
+    #@project.tasks.destroy
     @project.destroy
-    
-    respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Yay! You killed this project!' }
-      format.js
-      format.json { head :no_content }
-    end
   end
 
   private
