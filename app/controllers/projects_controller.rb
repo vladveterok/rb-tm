@@ -28,11 +28,11 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    #@project = Project.new(project_params)
+    @project = Project.new(project_params)
 
-    #unless @project.save
-    #  head :unprocessable_entity
-    #end
+    unless @project.save
+      head :unprocessable_entity
+    end
   end
 
   # PATCH/PUT /projects/1
