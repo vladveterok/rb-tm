@@ -1,1 +1,6 @@
-$("<%= escape_javascript(render @task)%>").appendTo("#tasks")
+document.querySelector("[data-placeholder=uncompleted_tasks]").insertAdjacentHTML("beforeend", "<%= j render "task", task: @task %>");
+document.querySelector("[data-placeholder=new_task_input]").value = "";
+
+<% if false %>
+$("<%= escape_javascript(render @task)%>").appendTo("#tasks");
+<% end %>

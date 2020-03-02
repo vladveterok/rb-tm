@@ -6,9 +6,8 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects.order(created_at: :desc).all
-    @project = Project.new  # TESTING LOGIC 1
-    @tasks = current_user.tasks
-    @task = Task.new
+    @project = Project.new
+    @new_task = Task.new
   end
 
   # GET /projects/1
@@ -18,7 +17,6 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new # MyComments: delete?
   end
 
   # GET /projects/1/edit
@@ -28,7 +26,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    # MyComments: render plain: params[:project].inspect
     @project = Project.new(project_params)
 
     respond_to do |format|
@@ -48,6 +45,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Yay! Project was so updated!' }
+        format.js
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }

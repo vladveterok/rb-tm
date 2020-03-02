@@ -1,3 +1,7 @@
 $('.delete_task').bind('ajax:success', function() {
-    $(this).closest('tr').fadeOut();
+    $(this).closest('li').fadeOut();
 });
+
+<% if false %>
+document.getElementById("<%= dom_id(@todo) %>").remove();
+<% end %>

@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle]
 
   # GET /tasks
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @new_task = Task.new
   end
 
   # GET /tasks/1
@@ -14,7 +15,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
   end
 
   # GET /tasks/1/edit
@@ -24,8 +24,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    #byebug
-    # render plain: params[:project].inspect
+    @projects = current_user.projects.all
     @task = Task.new(task_params)
 
     respond_to do |format|
@@ -62,18 +61,22 @@ class TasksController < ApplicationController
       format.html { redirect_to controller: projects_path, notice: 'Task was successfully destroyed.' }
       format.js
       format.json { head :no_content }
-      #format.js   { render layout: false }
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  def toggle
+    @task.toggle_completed!
+  end
 
-    # Only allow a list of trusted parameters through.
-    def task_params
-      params.require(:task).permit(:name, :status, :position, :deadline, :project_id)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def task_params
+    params.require(:task).permit(:name, :status, :position, :deadline, :project_id)
+  end
 end

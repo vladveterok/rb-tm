@@ -1,24 +1,24 @@
-<table>
+<table id="project">
 	<tbody>
-		<div id="project">
 			<tr>
 				<td><%= project.name %></td>
 				<td><%= link_to 'Edit', edit_project_path(project) %></td>
 				<td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?1' },
 					remote: true, class: 'delete_project' %></td>
 			</tr>
-		</div>
-		
-		<div id="create_task">
-			<%= form_with(model: @task) do |f| %>
-			<%= f.text_field :name, placeholder: "New task" %>
-			<%= f.hidden_field :project_id, :value => project.id %>
-			<%= f.submit %>
-			<% end %>
-		</div>
-		
-		<div>
-			<%= render project.tasks %>
-		</div>
 	</tbody>
 </table>
+		
+<%= form_with model: @new_task, class: "task-form" do |f| %>
+	<%= f.text_field :name, placeholder: "What are we gonna do, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "form_input" %>
+	<%= f.hidden_field :project_id, :value => project.id %>
+<% end %>
+
+<ul id="tasks" data-placeholder="uncompleted_tasks" >
+	<%= render project.tasks %>
+</ul>
+
+<ul id="tasks-uncompleted" data-placeholder="completed_tasks">
+	<%= render project.tasks.completed %>
+</ul>
+	
