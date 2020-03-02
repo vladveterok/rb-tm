@@ -1,5 +1,5 @@
 $("[data-placeholder=uncompleted_tasks][data-project-id=<%= @task.project_id %>]").prepend("<%= escape_javascript(render "task", task: @task) %>");
-$("[data-placeholder=new_task_input]").val("");
+$("[data-placeholder=new_task_input][data-project-id=<%= @task.project_id %>]").val("");
 
 
 <% if false %> 
