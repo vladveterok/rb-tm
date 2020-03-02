@@ -1,11 +1,13 @@
-<table id="project">
+<table id="<%= dom_id(project) %>" class="project-table_project">
 	<tbody>
-			<tr>
+		<tr>
+			<span class="project-list_project-name">
 				<td><%= project.name %></td>
-				<td><%= link_to 'Edit', edit_project_path(project) %></td>
-				<td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?1' },
-					remote: true, class: 'delete_project' %></td>
-			</tr>
+			</span>
+			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
+			<td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?1' },
+				remote: true, class: 'delete_project' %></td>
+		</tr>
 	</tbody>
 </table>
 		

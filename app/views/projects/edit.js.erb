@@ -1,0 +1,2 @@
+document.getElementById("<%= dom_id(@project) %>").outerHTML = "<%= j render "form_update", project: @project %>";
+document.getElementById("<%= dom_id(@project) %>").querySelector("#project_name").select();
