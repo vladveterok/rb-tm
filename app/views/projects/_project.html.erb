@@ -11,13 +11,13 @@
 	</tbody>
 </table>
 		
-<%= form_with model: @new_task, class: "task_form" do |f| %>
+  <%= form_with model: @new_task, class: "task_form" do |f| %>
 	<%= f.hidden_field :project_id, :value => project.id %>
 	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, data: { placeholder: :new_task_input }, class: "task_form_input" %>
 <% end %>
 
 <ul id="tasks" data-placeholder="uncompleted_tasks">
-	<%= render project.tasks %>
+	<%= render project.tasks.uncompleted %>
 </ul>
 
 <ul id="tasks-uncompleted" data-placeholder="completed_tasks">
