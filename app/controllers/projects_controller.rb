@@ -7,8 +7,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects.order(created_at: :desc).all
-    #@new_project = Project.new
-    #@new_task = Task.new
+    @new_project = Project.new
+    #@project = Project.new
+    @new_task = Task.new
   end
 
   # GET /projects/1
