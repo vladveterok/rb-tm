@@ -2,12 +2,4 @@ $('.delete_project').bind('ajax:success', function() {
     $(this).closest('tr').fadeOut();
 });
 
-
-
-
-<% if false %>
-delete every element with:
-[data-project-id=<%= @task.project_id %>]
-$( "[data-project-id=<%= @task.project_id %>]" ).remove();
-
-<% end %>
+$("[data-project-id=<%= @project.id %>]").fadeOut();
