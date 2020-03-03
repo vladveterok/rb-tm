@@ -1,7 +1,7 @@
 <li id="<%= dom_id(project) %>" class="project-table_project">
   <%= form_with model: project, class: "project_form" do |form| %> <!-- why 'project' model is not an instance variable? -->
 		<div class="form_field">
-			<td><%= form.text_field :name, class: "form_input", autocomplete: :off %></td>
+			<%= form.text_field :name, class: "form_input", autocomplete: :off %>
 		</div>
 		<div class="hidden_field">           <!-- rename to hidden_field -->
 			<%= form.hidden_field :user_id, :value => current_user.id %>
