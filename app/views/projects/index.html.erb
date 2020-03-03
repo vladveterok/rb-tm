@@ -11,12 +11,23 @@
 
 <br>
 
+<%
+=begin%>
 <div id="create_project">
 	<%= render 'form', project: @project %>
 </div>
+<%
+=end%>
 
 <br>
 
-<%= link_to 'New Project', new_project_path, remote: true %>
+<%= form_with(model: @new_project, remote: true) do |form| %>
+  <div class="field">           <!-- rename to hidden_field -->
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= form.submit "New Project" %>
+  </div>
+<% end %>
 
 <%-# commented line -%>
