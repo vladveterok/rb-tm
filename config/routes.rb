@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :tasks, only: [:index, :create, :show, :edit, :update, :destroy] do
     post :toggle, on: :member
+    collection do
+      patch :sort
+    end
   end
   resources :projects
   devise_for :users

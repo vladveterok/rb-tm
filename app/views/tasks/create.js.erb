@@ -1,11 +1,2 @@
 $("[data-placeholder=uncompleted_tasks][data-project-id=<%= @task.project_id %>]").prepend("<%= escape_javascript(render "task", task: @task) %>");
 $("[data-placeholder=new_task_input][data-project-id=<%= @task.project_id %>]").val("");
-
-
-<% if false %> 
-    <!-- !!!DELETE THIS STUFF!!! -->
-    $("<%= escape_javascript(render @task)%>").appendTo("#tasks");
-
-    document.querySelector("[data-placeholder=uncompleted_tasks]").insertAdjacentHTML("beforeend", "<%= j render "task", task: @task %>");
-    document.querySelector("[data-placeholder=new_task_input]").value = "";
-<% end %>

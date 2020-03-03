@@ -9,15 +9,28 @@
     <%= stylesheet_link_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/le-frog/jquery-ui.min.css' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    
+
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
          rel = "stylesheet">
-      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
       <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
    
     <script>
-         $(function() {
-            $( ".sortable" ).sortable();
-         });
+        $(function() {
+          $(".sortable").sortable({
+            update: function(e, ui) {
+              $.ajax({
+                url:  $(this).data("url"),
+                type: "PATCH",
+                data: $(this).sortable('serialize'),
+              });
+              
+            
+            }
+          });
+        });
+
     </script>
     <!-- Devise-wise, need tests -->
     <p class="notice"><%= notice %></p>

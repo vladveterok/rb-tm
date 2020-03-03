@@ -19,7 +19,7 @@
 		data: { placeholder: :new_task_input, "project-id": project.id }, class: "task_form_input" %>
 <% end %>
 
-<ul id="tasks" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
+<ul id="tasks" class="sortable" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
 	<%= render project.tasks.uncompleted.by_position %>
 </ul>
 

@@ -1,7 +1,15 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :toggle]
   respond_to :html, :js
+  protect_from_forgery except: :sort
 
+  def sort
+    params[:task].each_with_index do |id, index|
+      Task.where(id: id).update_all(position: index + 1)
+    end 
+
+    head :ok
+  end
   # GET /tasks/1
   # GET /tasks/1.json
   def show
