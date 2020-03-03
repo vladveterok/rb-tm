@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
+    @new_task = Task.new
 
     unless @project.save
       head :unprocessable_entity
