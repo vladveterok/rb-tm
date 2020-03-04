@@ -17,6 +17,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
+    # @task = Task.new -- for some reason is unnessessary. check, where new task is created
   end
 
   # GET /tasks/1/edit

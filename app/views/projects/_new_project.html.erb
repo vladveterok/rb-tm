@@ -3,7 +3,7 @@
 	<tbody>
 		<tr>
 			<span class="project-list_project-name">
-				<td><%= form.text_field :name, class: "form_input", autocomplete: :off %></td>
+				<td><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true %></td>
 			</span>
 			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
 			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },
