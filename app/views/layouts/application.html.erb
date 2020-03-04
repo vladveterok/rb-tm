@@ -17,7 +17,7 @@
       <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
    
     <script>
-        $(function() {
+        document.addEventListener("mousemove", function() {
           $(".sortable").sortable({
             update: function(e, ui) {
               $.ajax({

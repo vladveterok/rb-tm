@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects.order(created_at: :desc).all
     @new_project = Project.new
     #@project = Project.new
+    #@tasks = current_user.tasks.order(created_at: :desc)
     @new_task = Task.new
   end
 

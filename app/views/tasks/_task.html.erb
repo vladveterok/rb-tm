@@ -2,7 +2,7 @@
   <%= check_box_tag dom_id(task, "checkbox"), 1, task.completed?, data: { remote: true, url: toggle_task_path(task), 
     method: :post } %>
   <span class="task-list_task-name">
-    <%= link_to task.name, task, id: dom_id(task) %>
+    <a class="sortable"><%= link_to task.name, task, id: dom_id(task)  %></a>
   </span>
 
   <% unless task.completed? %>
