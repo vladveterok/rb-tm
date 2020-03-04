@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :project
-
+  validates :name, presence: true
   acts_as_list scope: :project
 
   scope :by_position, -> { order(:position) }
