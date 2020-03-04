@@ -1,9 +1,22 @@
 <%= form_with model: project, class: "project_form" do |form| %>
+
+	<% if project.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+			<ul>
+				<% project.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
 <table id="<%= dom_id(project) %>" class="project-table_project">
 	<tbody>
 		<tr>
 			<span class="project-list_project-name">
-				<td><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true %></td>
+				<td><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true, required: true %></td>
 			</span>
 			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
 			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },
@@ -15,7 +28,7 @@
 		
 <%= form_with model: @new_task, class: "task_form" do |f| %>
 	<%= f.hidden_field :project_id, :value => project.id %>
-	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, 
+	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
 		data: { placeholder: :new_task_input, "project-id": project.id }, class: "task_form_input" %>
 <% end %>
 
