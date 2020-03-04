@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   def sort
     params[:task].each_with_index do |id, index|
       Task.where(id: id).update_all(position: index + 1)
-    end 
+    end
 
     head :ok
   end
