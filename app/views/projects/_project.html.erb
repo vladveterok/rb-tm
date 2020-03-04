@@ -18,10 +18,10 @@
 <% end %>
 
 <ul id="tasks" class="sortable" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
-	<%= render project.tasks.uncompleted.by_position %>
+	<%= render project.tasks.uncompleted %>
 </ul>
 
 <ul id="tasks-completed" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
-	<%= render project.tasks.completed.by_position %>
+	<%= render project.tasks.completed %>
 </ul>
 	
