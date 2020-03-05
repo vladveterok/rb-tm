@@ -1,32 +1,34 @@
-.todo-list {
+.task-list {
     list-style: none;
     padding: 0;
+    //width: 100%;
   }
   
-  .todo-list--completed {
-    .todo-list__todo {
+  .task-list--completed {
+    .task-list__task {
       color: #666;
       font-size: 0.9em;
     }
-    .todo-list__todo-name {
+    .task-list__task-name {
       text-decoration: line-through;
     }
   }
   
-  .todo-list--uncompleted {
-    .todo-list__todo {
+  .task-list--uncompleted {
+    .task-list__task {
       box-sizing: border-box;
       padding: 7px;
       background: #f0f0f0;
       margin-bottom: 3px;
       border-radius: 2px;
+      //width: 100%;
   
       &:hover {
-        .todo-list__todo-controls {
+        .task-list__task-controls {
           display: inline;
         }
       }
-      .todo-list__todo-controls {
+      .task-list__task-controls {
         display: none;
         float: right;
       }

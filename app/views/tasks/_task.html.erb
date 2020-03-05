@@ -1,12 +1,12 @@
-<li id="<%= dom_id(task)%>" class="task-list_task">
+<li id="<%= dom_id(task)%>" class="task-list__task">
   <%= check_box_tag dom_id(task, "checkbox"), 1, task.completed?, data: { remote: true, url: toggle_task_path(task), 
     method: :post } %>
-  <span class="task-list_task-name">
+  <span class="task-list__task-name">
     <a class="sortable"><%= link_to task.name, task, id: dom_id(task)  %></a>
   </span>
 
   <% unless task.completed? %>
-    <span class="task-list_task-controls">
+    <span class="task-list__task-controls">
       <%= link_to 'Edit', edit_task_path(task), class: "link", remote: true %>
       <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you really-relly sure?'},
         remote: true, class: 'delete_task' %>

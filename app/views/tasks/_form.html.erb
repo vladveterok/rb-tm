@@ -1,7 +1,7 @@
-<li id="<%= dom_id(task)%>" class="task-list_task">
-  <%= form_with model: task, class: "task_form" do |f| %>
-    <div class="form_field">
-      <%= f.text_field :name, class: "task_form_input", autocomplete: :off, required: true %>
+<li id="<%= dom_id(task)%>" class="task-list__task">
+  <%= form_with model: task, class: "task-form" do |f| %>
+    <div class="task-form__field">
+      <%= f.text_field :name, class: "task-form__input", autocomplete: :off, required: true %>
     </div>
 
     <span id="dateselect", class="dateselect">
