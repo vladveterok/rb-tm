@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   def sort
     params[:task].each_with_index do |id, index|
       Task.where(id: id).update_all(position: index + 1)
-    end 
+    end
 
     head :ok
   end
@@ -56,6 +56,6 @@ class TasksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:name, :status, :position, :deadline, :project_id)
+    params.require(:task).permit(:name, :status, :position, :deadline, :due_day, :project_id)
   end
 end

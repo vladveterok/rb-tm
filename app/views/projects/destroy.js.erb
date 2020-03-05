@@ -2,4 +2,6 @@ $('.delete_project').bind('ajax:success', function() {
     $(this).closest('tr').fadeOut();
 });
 
+
 $("[data-project-id=<%= @project.id %>]").fadeOut();
+$("#dateselect_<%= @project.id %>").fadeOut();

@@ -15,13 +15,17 @@
 	<%= f.hidden_field :project_id, :value => project.id %>
 	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
 		data: { placeholder: :new_task_input, "project-id": project.id }, class: "task_form_input" %>
+	
+	<span id="dateselect_<%= project.id %>", class="dateselect">
+		<%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year %>
+	</span>
 <% end %>
 
 <ul id="tasks" class="sortable" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
-	<%= render project.tasks.uncompleted.by_position %>
+	<%= render project.tasks.uncompleted %>
 </ul>
 
 <ul id="tasks-completed" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
-	<%= render project.tasks.completed.by_position %>
+	<%= render project.tasks.completed %>
 </ul>
 	
