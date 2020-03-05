@@ -4,6 +4,10 @@
       <%= f.text_field :name, class: "task_form_input", autocomplete: :off, required: true %>
     </div>
 
+    <span id="dateselect", class="dateselect">
+		<%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year %>
+	  </span>
+
     <%= f.submit "Save", class: "button button--primary" %>
     <%= link_to "Cancel", task_path(task), class: "button link", remote: true %>
   <% end %>

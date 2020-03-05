@@ -8,7 +8,6 @@ class Project < ApplicationRecord
 def set_defaults
   self.name ||= "Lovely new project ^_^"
 end
-
   # -> { order(:position) },
   #Project.order(created_at: :asc)
 end

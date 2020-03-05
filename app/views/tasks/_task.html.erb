@@ -11,5 +11,10 @@
       <%= link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you really-relly sure?'},
         remote: true, class: 'delete_task' %>
     </span>
+    <% if task.due_day.present? %>
+    <time class="task-time<%= task.due_day <= Date.today ? ' is-due' : '' %>" datetime="<%= task.due_day.strftime('%FT%T') %>">
+      <%= task.due_day.strftime("%m/%d") %>
+    </time>
+    <% end %>
   <% end %>
 </li>
