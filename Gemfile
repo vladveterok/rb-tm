@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 
+# gem "therubyracer", :platforms => :ruby
+
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'jquery-rails'
+
 gem 'jquery-ui-rails'
 gem "acts_as_list"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
