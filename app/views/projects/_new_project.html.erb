@@ -18,9 +18,9 @@
 			<span class="project-list_project-name">
 				<td><h2><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true, required: true %></h2></td>
 			</span>
-			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
-			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },
-				remote: true, class: 'delete_project' %></td>
+			<td><%= link_to '<span class="far fa-edit"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %></td>
+			<td><%= link_to '<span class="far fa-trash-alt"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
+				remote: true, class: 'delete_project ml-3' %></td>
 		</tr>
 	</tbody>
 </table>
@@ -32,13 +32,10 @@
 		<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
 			data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
 	</div>
-	<span id="dateselect_<%= project.id %>", class="dateselect">
-		<%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year %>
-	</span>
 <% end %>
 
 <div class="task-list task-list--uncompleted">
-	<ul id="tasks" style="list-style-type:none" class="sortable" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
+	<ul id="tasks" style="list-style-type:none" class="list-group" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
 		<%= render project.tasks.uncompleted %>
 	</ul>
 </div>

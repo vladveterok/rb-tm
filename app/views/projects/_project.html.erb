@@ -1,12 +1,15 @@
 <table id="<%= dom_id(project) %>" class="project-table_project">
 	<tbody>
 		<tr>
-			<span class="project-list_project-name">
+			<span class="project-list__project-name">
 				<td><h2><%= project.name %></h2></td>
 			</span>
-			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
-			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },
-				remote: true, class: 'delete_project' %></td>
+			
+			<span class="project-list__controls">
+				<td><%= link_to '<span class="far fa-edit"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %></td>
+				<td><%= link_to '<span class="far fa-trash-alt"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
+					remote: true, class: 'delete_project ml-3' %></td>
+			</span>
 		</tr>
 	</tbody>
 </table>
@@ -17,9 +20,7 @@
 		<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
 			data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
 	</div>
-	<span id="dateselect_<%= project.id %>", class="form-input-container">
-		<%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year %>
-	</span>
+
 <% end %>
 
 <div class="task-list task-list--uncompleted">

@@ -4,9 +4,9 @@
 			<span class="project-list_project-name">
 				<td><h2><%= project.name %></h2></td>
 			</span>
-			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
-			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },
-				remote: true, class: 'delete_project' %></td>
+			<td><%= link_to '<span class="far fa-edit"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %></td>
+			<td><%= link_to '<span class="far fa-trash-alt"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
+				remote: true, class: 'delete_project ml-3' %></td>
 		</tr>
 	</tbody>
 </table>
