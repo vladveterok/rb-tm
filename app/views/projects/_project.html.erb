@@ -29,15 +29,16 @@
 
 
 
+<div class="card" style="width: 100%;">
+	<div class="task-list task-list--uncompleted">
+		<ul id="tasks" class="list-group list-group-flush" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
+			<%= render project.tasks.uncompleted %>
+		</ul>
+	</div>
 
-<div class="task-list task-list--uncompleted">
-	<ul id="tasks" class="list-group" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
-		<%= render project.tasks.uncompleted %>
-	</ul>
+	<div class="task-list task-list--completed">
+		<ul id="tasks-completed" class="list-group list-group-flush" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
+			<%= render project.tasks.completed %>
+		</ul>
+	</div>	
 </div>
-
-<div class="task-list task-list--completed">
-	<ul id="tasks-completed" class="list-group" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
-		<%= render project.tasks.completed %>
-	</ul>
-</div>	
