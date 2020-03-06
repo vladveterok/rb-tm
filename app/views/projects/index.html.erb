@@ -27,10 +27,9 @@
 
 <br>
 
+
 <%= form_with(model: @new_project, remote: true) do |form| %>
-  <div class="field">           <!-- rename to hidden_field -->
     <%= form.hidden_field :user_id, :value => current_user.id %>
-  </div>
   <div class="actions">
     <%= form.submit "New Project", class: "btn btn-primary" %>
   </div>

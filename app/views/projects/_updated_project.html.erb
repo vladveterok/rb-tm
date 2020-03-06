@@ -2,7 +2,7 @@
 	<tbody>
 		<tr>
 			<span class="project-list_project-name">
-				<td><%= project.name %></td>
+				<td><h2><%= project.name %></h2></td>
 			</span>
 			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
 			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },

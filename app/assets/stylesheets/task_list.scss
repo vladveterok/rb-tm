@@ -11,17 +11,20 @@
     }
     .task-list__task-name {
       text-decoration: line-through;
+      
+      //grid-column: col 1;
     }
   }
   
-  .task-list--uncompleted {
-    .task-list__task {
-      box-sizing: border-box;
-      padding: 7px;
-      background: #f0f0f0;
+  .task-list--uncompleted { 
+    .list-group-item { //.list-group-item
+      //box-sizing: border-box;
+      //padding: 7px;
+      //background: #f0f0f0;
       margin-bottom: 3px;
       border-radius: 2px;
-      //width: 100%;
+      list-style-type: none;
+      
   
       &:hover {
         .task-list__task-controls {
@@ -31,6 +34,14 @@
       .task-list__task-controls {
         display: none;
         float: right;
+      }
+
+      .task-time {
+        color: #d3d3d3;
+      }
+
+      .task-time.is-due {
+        color: #cc0000;
       }
     }
   }

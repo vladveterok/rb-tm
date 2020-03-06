@@ -16,7 +16,7 @@
 	<tbody>
 		<tr>
 			<span class="project-list_project-name">
-				<td><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true, required: true %></td>
+				<td><h2><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true, required: true %></h2></td>
 			</span>
 			<td><%= link_to 'Edit', edit_project_path(project), class: "link", remote: true %></td>
 			<td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?1' },
@@ -27,23 +27,24 @@
 <% end %>
 		
 <%= form_with model: @new_task, class: "task_form" do |f| %>
-	<%= f.hidden_field :project_id, :value => project.id %>
-	<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
-		data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
-	
+	<div class="task-form__field">
+		<%= f.hidden_field :project_id, :value => project.id %>
+		<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
+			data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
+	</div>
 	<span id="dateselect_<%= project.id %>", class="dateselect">
 		<%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year %>
 	</span>
 <% end %>
 
 <div class="task-list task-list--uncompleted">
-	<ul id="tasks" class="sortable" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
+	<ul id="tasks" style="list-style-type:none" class="sortable" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
 		<%= render project.tasks.uncompleted %>
 	</ul>
 </div>
 
 <div class="task-list task-list--completed">
-	<ul id="tasks-completed" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
+	<ul id="tasks-completed" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
 		<%= render project.tasks.completed %>
 	</ul>
 </div>
