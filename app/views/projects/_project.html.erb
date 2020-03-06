@@ -15,13 +15,20 @@
 </table>
 
 <%= form_with model: @new_task, class: "task-form" do |f| %>
-	<div class="task-form__field">
-		<%= f.hidden_field :project_id, :value => project.id %>
-		<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
-			data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
+	<div class=" input-group input-group-sm mb-3">
+		
+				<%= f.hidden_field :project_id, :value => project.id %>
+				<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
+					data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
+			
+			<div class="input-group-append">
+    		<button class="btn btn-success" type="button">Button</button>
+  		</div>
 	</div>
-
 <% end %>
+
+
+
 
 <div class="task-list task-list--uncompleted">
 	<ul id="tasks" class="list-group" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
@@ -30,7 +37,7 @@
 </div>
 
 <div class="task-list task-list--completed">
-	<ul id="tasks-completed" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
+	<ul id="tasks-completed" class="list-group" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
 		<%= render project.tasks.completed %>
 	</ul>
 </div>	

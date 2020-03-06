@@ -2,7 +2,7 @@
   <%= check_box_tag dom_id(task, "checkbox"), 1, task.completed?, data: { remote: true, url: toggle_task_path(task), 
     method: :post } %>
   <span class="task-list__task-name ml-3">
-    <a class="sortable"><%= link_to task.name, task, id: dom_id(task), style: "text-decoration:none" %></a>
+    <a class="sortable"><%= link_to task.name, task, id: dom_id(task), style: "text-decoration:none", class: "text-secondary" %></a>
   </span>
 
 
