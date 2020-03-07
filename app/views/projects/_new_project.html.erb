@@ -1,4 +1,4 @@
-<div class="container-fluid" id="<%= dom_id(project) %>">
+
 	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
 		<%= form_with model: project, class: "project_form" do |form| %>
 			<a class="navbar-brand text-light">	
@@ -8,6 +8,31 @@
 			</a>
 		<% end %>
 	</nav>
+
+	<%= form_with model: @new_task, class: "task-form" do |f| %>
+		<div class="input-group mb-3 my-sm-1">
+			<%= f.hidden_field :project_id, :value => project.id %>
+			<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
+				data: { placeholder: :new_task_input, "project-id": project.id }, class: "form-control"%>
+						
+			<div id="project_button_<%= project.id %>" class="input-group-append">
+				<%= f.submit "Add Task", class: "btn btn-success my-2 my-sm-0" %>	
+			</div>
+		</div>
+	<% end %>
+
+	<div class="task-list task-list--uncompleted">
+		<ul id="tasks" class="list-group list-group-action" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
+			<%= render project.tasks.uncompleted %>
+		</ul>
+	</div>
+
+	<div class="task-list task-list--completed">
+		<ul id="tasks-completed" class="list-group list-group" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
+			<%= render project.tasks.completed %>
+		</ul>
+	</div>
+
 <br>
-<br>
-</div>
+
+

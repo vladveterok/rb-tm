@@ -5,4 +5,4 @@ $('.delete_project').bind('ajax:success', function() {
 $("#container_project_<%= @project.id %>").fadeOut();
 $("[data-project-id=<%= @project.id %>]").fadeOut();
 $("#project_button_<%= @project.id %>").fadeOut();
-$("#project_<%= @project.id %>").remove();
+$("#project_<%= @project.id %>").fadeOut();

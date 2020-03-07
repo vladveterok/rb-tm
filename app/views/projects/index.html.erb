@@ -15,7 +15,12 @@
 	<%= render @projects %>
 </div>
 
-
+ <div class="text-center">
+      <%= form_with(model: @new_project, remote: true) do |form| %>
+          <%= form.hidden_field :user_id, :value => current_user.id %>
+          <%= form.submit "New Project", class: "btn btn-primary" %>
+      <% end %>
+  </div>
 
 <%# !!!---THIS IS AN ALTERNATIVE PROJECT CREATION---!!! %>
 <%
@@ -27,12 +32,7 @@
 =end%>
 
 
-    <div class="actions">
-      <%= form_with(model: @new_project, remote: true) do |form| %>
-          <%= form.hidden_field :user_id, :value => current_user.id %>
-          <%= form.submit "New Project", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+   
 
 
 <%-# commented line -%>
