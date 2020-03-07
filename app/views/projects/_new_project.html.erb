@@ -27,10 +27,14 @@
 <% end %>
 		
 <%= form_with model: @new_task, class: "task_form" do |f| %>
-	<div class="task-form__field">
-		<%= f.hidden_field :project_id, :value => project.id %>
-		<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
-			data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
+		<div class="input-group input-group-sm mb-3">
+				<%= f.hidden_field :project_id, :value => project.id %>
+				<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
+					data: { placeholder: :new_task_input, "project-id": project.id }, class: "task-form__input" %>
+			
+			<div class="input-group-append">
+    		<button class="btn btn-success" type="button">Button</button>
+  		</div>
 	</div>
 <% end %>
 
@@ -47,3 +51,6 @@
 		</ul>
 	</div>
 </div>
+
+<br>
+<br>

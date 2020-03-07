@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   protect_from_forgery except: :sort
 
   def sort
+    
     params[:task].each_with_index do |id, index|
       Task.where(id: id).update_all(position: index + 1)
     end
@@ -17,7 +18,6 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    # @task = Task.new -- for some reason is unnessessary. check, where new task is created
   end
 
   # GET /tasks/1/edit
@@ -26,8 +26,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-   # mySorting();
-    
+   
 
     unless @task.save
       head :unprocessable_entity
