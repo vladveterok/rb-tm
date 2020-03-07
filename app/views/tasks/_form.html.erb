@@ -6,15 +6,12 @@
       </span>
 
       <div>
-          <%= f.submit "Save", class: "btn btn-success my-2 my-sm-0" %>	
+          <%= f.submit "Save", class: "btn btn-success my-2 my-sm-0 ml-2" %>	
       </div>
 
-       <span id="dateselect", class="dateselect my-sm-1">  
-        <%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year, include_blank: true %>    
+       <span id="dateselect", class="dateselect my-sm-1 ml-3">  
+        <%= f.date_select :due_day, start_year: Time.now.year, end_year: Time.now.year, include_blank: true %>    
       </span>
-
-      
-
     
       <%= link_to "Cancel", task_path(task), class: "button link", remote: true %>
     </div>

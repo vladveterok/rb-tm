@@ -1,4 +1,5 @@
-
+<div id="container_<%= dom_id(project) %>">
+<br>
 	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
 		<%= form_with model: project, class: "project_form" do |form| %>
 			<a class="navbar-brand text-light">	
@@ -28,11 +29,12 @@
 	</div>
 
 	<div class="task-list task-list--completed">
-		<ul id="tasks-completed" class="list-group list-group" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
+		<ul id="tasks-completed"  style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
 			<%= render project.tasks.completed %>
 		</ul>
 	</div>
-
 <br>
+
+</div>
 
 

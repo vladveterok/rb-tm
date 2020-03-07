@@ -2,7 +2,7 @@ $('.delete_project').bind('ajax:success', function() {
     $(this).closest('tr').fadeOut();
 });
 
-$("#container_project_<%= @project.id %>").fadeOut();
+$("#container_project_<%= @project.id %>").fadeOut().remove();
 $("[data-project-id=<%= @project.id %>]").fadeOut();
 $("#project_button_<%= @project.id %>").fadeOut();
 $("#project_<%= @project.id %>").fadeOut();
