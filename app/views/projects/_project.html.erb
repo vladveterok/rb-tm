@@ -1,47 +1,43 @@
-<table id="<%= dom_id(project) %>" class="project-table_project">
-	<tbody>
-		<tr>
-			<span class="project-list__project-name">
-				<td><h2><%= project.name %></h2></td>
-			</span>
-			
-			<span class="project-list__controls">
-				<td><%= link_to '<span class="far fa-edit"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %></td>
-				<td><%= link_to '<span class="far fa-trash-alt"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
-					remote: true, class: 'delete_project ml-3' %></td>
-			</span>
-		</tr>
-	</tbody>
-</table>
-
-
-<div class="card" style="width: 100%;" id="project_button_<%= project.id %>">
-	<div class="card-header">
-		<%= form_with model: @new_task, class: "task-form" do |f| %>
-			<div class="input-group mb-3">
-				<%= f.hidden_field :project_id, :value => project.id %>
-				<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
-					data: { placeholder: :new_task_input, "project-id": project.id }, class: "form-control" %>
+<div class="container-fluid" id="container_<%= dom_id(project) %>">
+	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
+		
+			<a class="navbar-brand text-light">	
+				<span class="project-list__project-name">
+					<h5 class="mb-0"><%= project.name %></h5>
+				</span>
+			</a>	
+				<span class="project-list__controls" float="right">
+					<%= link_to '<span class="far fa-edit text-light"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %>
+					<%= link_to '<span class="far fa-trash-alt text-light"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
+						remote: true, class: 'delete_project ml-2 mr-2' %>
+				</span>
+	</nav>		
 					
-				<div id="project_button_<%= project.id %>" class="input-group-append">
-					<button class="btn btn-success" type="button">Button</button>
-				</div>
+	<%= form_with model: @new_task, class: "task-form" do |f| %>
+		<div class="input-group mb-3 my-sm-1">
+			<%= f.hidden_field :project_id, :value => project.id %>
+			<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
+				data: { placeholder: :new_task_input, "project-id": project.id }, class: "form-control"%>
+						
+			<div id="project_button_<%= project.id %>" class="input-group-append">
+				<%= f.submit "Add Task", class: "btn btn-success my-2 my-sm-0" %>	
 			</div>
-		<% end %>
-	</div>
-
+		</div>
+	<% end %>
+					
 	<div class="task-list task-list--uncompleted">
-		<ul id="tasks" class="list-group list-group-flush" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
+		<ul id="tasks" class="list-group list-group-action" data-url="<%= sort_tasks_path %>" data-placeholder="uncompleted_tasks" data-project-id="<%= project.id %>">
 			<%= render project.tasks.uncompleted %>
 		</ul>
 	</div>
 
 	<div class="task-list task-list--completed">
-		<ul id="tasks-completed" class="list-group list-group-flush" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
+		<ul id="tasks-completed" class="list-group list-group" style="list-style-type:none" data-placeholder="completed_tasks" data-project-id="<%= project.id %>">
 			<%= render project.tasks.completed %>
 		</ul>
-	</div>	
+	</div>
+	
+	<br>
+	<br>	
 </div>
 
-<br>
-<br>

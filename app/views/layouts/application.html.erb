@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!—!!! REF02 !!!—>
@@ -24,21 +25,9 @@
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://kit.fontawesome.com/f6764a97a3.js" crossorigin="anonymous"></script>
    
-    <script>
-    // var mySorting = function mySorting() {
-        document.addEventListener("mousemove", function() {
-          $(".list-group").sortable({
-            update: function(e, ui) {
-              $.ajax({
-                url:  $(this).data("url"),
-                type: "PATCH",
-                data: $(this).sortable('serialize'),
-              });
-            }
-          });
-        });
+    
+   
 
-    </script>
     <!-- Devise-wise, need tests -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
@@ -49,5 +38,22 @@
     <div class="container">
       <%= yield %>
     </div>
+
+    <script>
+      function mySorting() {
+        $(".list-group").sortable({
+          update: function(e, ui) {
+            $.ajax({
+              url:  $(this).data("url"),
+              type: "PATCH",
+              data: $(this).sortable('serialize'),
+            });
+          }
+        });
+      };
+
+      $('.datepicker').datepicker();
+
+    </script>
   </body>
 </html>

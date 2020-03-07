@@ -1,25 +1,12 @@
-<li id="<%= dom_id(project) %>" class="project-table_project">
-  <%= form_with model: project, class: "project_form" do |form| %> <!-- why 'project' model is not an instance variable? -->
-		<% if project.errors.any? %>
-			<div id="error_explanation">
-				<h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
-				<ul>
-					<% project.errors.full_messages.each do |message| %>
-						<li><%= message %></li>
-					<% end %>
-				</ul>
-			</div>
-  	<% end %>
+	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
+		<%= form_with model: project, class: "project_form" do |form| %>
+			<a class="navbar-brand text-light">	
+				<span class="project-list__project-name">	
+					<h5 class="mb-0"><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true, required: true %></h5>
+				</span>
+			</a>
 		
-		<div class="form_field">
-			<%= form.text_field :name, class: "form_input", autocomplete: :off, required: true %>
-		</div>
-		<div class="hidden_field">           <!-- rename to hidden_field -->
-			<%= form.hidden_field :user_id, :value => current_user.id %>
-		</div>
+		<% end %>
+	</nav>
 
-		<%= form.submit "Save", class: "button button-primary" %>
-		<%= link_to "Cancel", project_path(project), class: "button link", remote: true %>
-  <% end %>
-</li>

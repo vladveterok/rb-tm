@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-    @new_task = Task.new
+    
 
     unless @project.save
       head :unprocessable_entity
@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    @new_task = Task.new
     if @project.update(project_params)
       render "show"
     end

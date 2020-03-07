@@ -1,4 +1,4 @@
-<li id="<%= dom_id(task)%>" class="list-group-item list-group-item-action">
+<li id="<%= dom_id(task)%>" class="list-group-item list-group-item-action" onmousedown="mySorting()">
   <%= check_box_tag dom_id(task, "checkbox"), 1, task.completed?, data: { remote: true, url: toggle_task_path(task), 
     method: :post } %>
   <span class="task-list__task-name ml-3">

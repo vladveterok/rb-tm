@@ -8,15 +8,16 @@
   </div>
 </div>
 
+
 <br>
 
 <div id="projects">
 	<%= render @projects %>
 </div>
 
-<br>
 
-<%# !!!---THIS IS AND ALTERNATIVE PROJECT CREATION---!!! %>
+
+<%# !!!---THIS IS AN ALTERNATIVE PROJECT CREATION---!!! %>
 <%
 =begin%>
 <div id="create_project">
@@ -25,14 +26,15 @@
 <%
 =end%>
 
-<br>
 
+    <div class="actions">
+      <%= form_with(model: @new_project, remote: true) do |form| %>
+          <%= form.hidden_field :user_id, :value => current_user.id %>
+          <%= form.submit "New Project", class: "btn btn-primary" %>
+      <% end %>
+    </div>
 
-<%= form_with(model: @new_project, remote: true) do |form| %>
-    <%= form.hidden_field :user_id, :value => current_user.id %>
-  <div class="actions">
-    <%= form.submit "New Project", class: "btn btn-primary" %>
-  </div>
-<% end %>
 
 <%-# commented line -%>
+
+

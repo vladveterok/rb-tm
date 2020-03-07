@@ -1,3 +1,2 @@
-
 document.getElementById("<%= dom_id(@task) %>").outerHTML = "<%= j render "form", task: @task %>";
 document.getElementById("<%= dom_id(@task) %>").querySelector("#task_name").select();

@@ -1,14 +1,23 @@
 <li id="<%= dom_id(task)%>" class="task-list__task">
   <%= form_with model: task, class: "task-form" do |f| %>
-    <div class="task-form__field">
-      <%= f.text_field :name, class: "task-form__input", autocomplete: :off, required: true %>
+    <div class="input-group mb-3 my-sm-1">
+      <span>
+        <%= f.text_field :name, class: "task-form__input", autocomplete: :off, required: true, class: "form-control" %>
+      </span>
+
+      <div>
+          <%= f.submit "Save", class: "btn btn-success my-2 my-sm-0" %>	
+      </div>
+
+       <span id="dateselect", class="dateselect my-sm-1">  
+        <%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year, include_blank: true %>    
+      </span>
+
+      
+
+    
+      <%= link_to "Cancel", task_path(task), class: "button link", remote: true %>
     </div>
-
-    <span id="dateselect", class="dateselect">
-		<%= f.date_select :due_day, discard_year: true, start_year: Time.now.year, end_year: Time.now.year %>
-	  </span>
-
-    <%= f.submit "Save", class: "button button--primary" %>
-    <%= link_to "Cancel", task_path(task), class: "button link", remote: true %>
   <% end %>
 </li>
+
