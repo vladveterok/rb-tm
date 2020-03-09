@@ -50,6 +50,24 @@ class ProjectsController < ApplicationController
     @project.destroy
   end
 
+  def count_projects
+    @projects_by_tasks_desc = Project.order(tasks_count: :desc).all
+
+    @projects_by_name = Project.order(:name).all
+
+    @projects_by_n = Project.where("name ~ ?", '^[nN]' )
+
+    #Find all tasks with duplicate name
+    @tasks_duplicate_names = Task.order(:name).where(name: Task.select(:name).group(:name).having("count(*) > 1"))
+    #Task.order(:name).select(:name).group(:name).having("count(*) > 1")
+
+    @tasks_duplicate_in_garage = Project.find_by(name: 'Garage').tasks.select(:completed, :name).group(:completed,
+      :name).having("count(*) > 1").size
+    @arr = @tasks_duplicate_in_garage.sort_by{|r,v|v}.reverse
+      #byebug
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

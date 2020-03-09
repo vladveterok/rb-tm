@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :project
+  belongs_to :project, :counter_cache => true
   validates :name, :project_id, presence: true
   acts_as_list scope: :project
   
