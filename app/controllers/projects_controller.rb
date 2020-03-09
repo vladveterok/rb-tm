@@ -89,13 +89,13 @@ class ProjectsController < ApplicationController
     # get projects with more than 10 completed tasks
     @projects_by_project_id = Project.order(:id).all
     @projects_with_completed = []
+
     @projects_by_project_id.each do |project|
-      
       if project.tasks.completed.count > 10
         @projects_with_completed << project
       end
     end
-    @projects_with_completed
+   
     
   end
 
