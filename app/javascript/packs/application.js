@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery");
 
 import "bootstrap"
 import "../stylesheets/application"
@@ -16,10 +17,7 @@ document.addEventListener("turbolinks:load", () => {
 	$('[data-toggle="tooltip"]').popover()
 })
 
-//= require jquery
-//= require bootstrap-sprockets
 
-// require("jquery-ui-dist/jquery-ui")
 
 
 
