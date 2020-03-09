@@ -1,5 +1,5 @@
-<h2>Projects</h2>
-<h5>ordered by tasks count desc</h5>
+<h2>Get the count of all tasks in each project</h2>
+<h5>ordered by tasks count</h5>
 
 <table>
 	<% @projects_by_tasks_desc.each do |project| %>
@@ -12,7 +12,7 @@
 
 <br><br>
 
-<h2>Projects</h2>
+<h2>Get the count of all tasks in each project</h2>
 <h5>ordered by projects names</h5>
 
 <table>
@@ -26,8 +26,8 @@
 
 <br><br>
 
-<h2>Projects</h2>
-<h5>ordered by N</h5>
+<h2>Get the tasks for all projects</h2>
+<h5>having the name beginning with "N" letter</h5>
 
 <table>
 	<% @projects_by_n.each do |project| %>
@@ -40,8 +40,22 @@
 
 <br><br>
 
-<h2>Tasks</h2>
-<h5>with duplicate names asc</h5>
+<h2>Get all projects containing the 'a' letter in the middle of the name</h2>
+<h5>and show the tasks count near each project</h5>
+
+<table>
+	<% @projects_with_a.each do |project| %>
+		<tr>
+			<td><%= link_to project.name %></td>
+			<td><small>(<%= pluralize project.tasks.size, 'task' %>)</small></td>
+		</tr>
+	<% end %>
+</table>
+
+<br><br>
+
+<h2>Get the list of tasks with duplicate names</h2>
+<h5>ordered alphabetically</h5>
 
 <table>
 	<% @tasks_duplicate_names.each do |task| %>
@@ -51,14 +65,32 @@
 	<% end %>
 </table>
 
-<h2>Tasks</h2>
-<h5>with multiple matches in Garage</h5>
+<br><br>
+
+<h2>Get tasks having matches of both name and status</h2>
+<h5>from the project 'Garage'. Order by matches count</h5>
 
 <table>
 	<% @arr.each do |task| %>
 		<tr>
-			<td><%= link_to task[0][1] %></td>
+			<td><%= link_to task[0] %></td>
 			<td><small>(<%= pluralize task[1], 'match' %>)</small></td>
 		</tr>
 	<% end %>
 </table>
+
+<br><br>
+
+<h2>Get the list of project names</h2>
+<h5>having more than 10 tasks in status 'completed'. Order by project_id</h5>
+
+<table>
+	<% @projects_with_completed.each do |project| %>
+		<tr>
+			<td><%= link_to project.name %></td>
+			<td><small>(<%= pluralize project.tasks.completed.size, 'task' %>)</small></td>
+		</tr>
+	<% end %>
+</table>
+
+<br><br>
