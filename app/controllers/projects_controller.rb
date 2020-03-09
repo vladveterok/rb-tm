@@ -65,9 +65,15 @@ class ProjectsController < ApplicationController
     #Task.order(:name).select(:name).group(:name).having("count(*) > 1")
 
     # get all tasks with multiple matches ordered by number of matches
-    @tasks_duplicate_in_garage = Project.find_by(name: 'Garage').tasks.select(:completed, :name).group(:completed,
-      :name).having("count(*) > 1").size
-    @arr = @tasks_duplicate_in_garage.sort_by{|r,v|v}.reverse
+    @arr = []
+    project = Project.find_by(name: 'Garage')
+    if project
+      tasks_duplicate_in_garage = project.tasks.select(:completed, :name).group(:completed,
+        :name).having("count(*) > 1").size
+      @arr = tasks_duplicate_in_garage.sort_by{|r,v|v}.reverse
+    else
+      @arr
+    end
       #byebug
     
     # get projects with "a" in the middle
