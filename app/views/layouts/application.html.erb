@@ -3,8 +3,21 @@
   <head>
     
     <style type="text/css">
-    body { background: rgb(217,122,0);
-background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%); !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    
+    body, html { 
+      height: 100%;
+
+      background: rgb(217,122,0);
+      background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%); 
+      
+      background-position: center;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-attachment: fixed;
+      } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
     </style>
 
     <title>RubyDo</title>
@@ -40,9 +53,9 @@ background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%)
   </head>
 
   <body>
+  
+    
     <div class="container-fluid pagination-centered">
-      
-       
           <div class="row justify-content-center">
             <div class="col-md-3 col-1">
             </div>
@@ -51,10 +64,9 @@ background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%)
                 </div>
               <div class="col-md-3 col-1">
             </div>
-          </div>
-       
-      
+          </div> 
     </div>
+ 
 
     <script>
       function mySorting() {
@@ -70,5 +82,7 @@ background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%)
       };
     </script>
     
+
+
   </body>
 </html>
