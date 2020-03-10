@@ -10,14 +10,14 @@
 		<% end %>
 	</nav>
 
-	<%= form_with model: @new_task, class: "task-form" do |f| %>
+		<%= form_with model: @new_task, class: "task-form" do |f| %>
 		<div class="input-group mb-3 my-sm-1">
 			<%= f.hidden_field :project_id, :value => project.id %>
 			<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
 				data: { placeholder: :new_task_input, "project-id": project.id }, class: "form-control"%>
 						
-			<div id="project_button_<%= project.id %>" class="input-group-append">
-				<%= f.submit "Add Task", class: "btn btn-success my-2 my-sm-0" %>	
+			<div id="project_button_<%= project.id %>" class="input-group-append my-sm-0">
+				<%= f.submit "Add Task", class: "btn btn-success " %>	
 			</div>
 		</div>
 	<% end %>
