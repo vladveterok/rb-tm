@@ -1,8 +1,8 @@
-<li id="<%= dom_id(task)%>" class="task-list__task">
+<li id="<%= dom_id(task)%>" class="task-list__task" >
   <%= form_with model: task, class: "task-form" do |f| %>
     <div class="input-group mb-3 my-sm-1">
       <span>
-        <%= f.text_field :name, class: "task-form__input", autocomplete: :off, required: true, class: "form-control" %>
+        <%= f.text_field :name, autocomplete: :off, required: true, class: "form-control", style: "text-decoration:none" %>
       </span>
 
       <div>
@@ -10,7 +10,7 @@
       </div>
 
        <span id="dateselect", class="dateselect my-sm-1 ml-3">  
-        <%= f.date_select :due_day, start_year: Time.now.year, end_year: Time.now.year, include_blank: true %>    
+        <%= f.date_select :due_day, start_year: Time.now.year, end_year: Time.now.year, include_blank: true, html:{class: "date-input"} %>    
       </span>
     
       <%= link_to "Cancel", task_path(task), class: "button link", remote: true %>
