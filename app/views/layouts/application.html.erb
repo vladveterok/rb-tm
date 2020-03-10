@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
+    <style type="text/css">
+    body { background: rgb(217,122,0);
+background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%); !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    </style>
+
     <title>RbTm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -35,7 +41,7 @@
 
   <body>
 
-    <div class="container">
+    <div class="container" >
       
       <%= yield %>
       

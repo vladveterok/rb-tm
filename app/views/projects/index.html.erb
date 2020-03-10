@@ -18,10 +18,10 @@
 	<%= render @projects %>
 </div>
 
- <div class="text-center">
+ <div class="text-center pb-5 pt-3 ">
       <%= form_with(model: @new_project, remote: true) do |form| %>
           <%= form.hidden_field :user_id, :value => current_user.id %>
-          <%= form.submit "New Project", class: "btn btn-primary" %>
+          <%= form.submit "Add TODO List", class: "btn btn-primary " %>
       <% end %>
   </div>
 

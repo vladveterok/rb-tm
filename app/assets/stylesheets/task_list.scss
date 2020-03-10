@@ -46,3 +46,11 @@
       }
     }
   }
+
+.navbar {
+  background-image: linear-gradient(to right top, #4066a3, #446ca9, #4872af, #4d79b4, #517fba);
+}
+
+.list-group-item:hover {
+    background-color: rgba(254, 254, 213, 0.7);
+  }
