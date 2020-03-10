@@ -1,18 +1,13 @@
 
-	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
-		<%= form_with model: project, class: "form-inline d-inline w-100" do |form| %>
+		<%= form_with model: project do |form| %>
 			
-			<form class="d-inline w-100">
+			<form class="w-100">
 				<div class="table-cell fill-width">
-			
-    			
-					
 				<h5 class="mb-0"><%= form.text_field :name, class: "form_input form-control", autocomplete: :off, autofocus: true, required: true %></h5>
-			
-			
 				</div>
 			</form>
 			
 		<% end %>
-	</nav>
+
+
 

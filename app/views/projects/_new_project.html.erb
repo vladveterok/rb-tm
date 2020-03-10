@@ -2,11 +2,11 @@
 <br>
 	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
 		<%= form_with model: project, class: "project_form" do |form| %>
-			<a class="navbar-brand text-light">	
-				<span class="project-list__project-name">	
-					<h5 class="mb-0"><%= form.text_field :name, class: "form_input", autocomplete: :off, autofocus: true, required: true %></h5>
-				</span>
-			</a>
+			<form class="d-inline w-100">
+				<div class="table-cell fill-width">
+				<h5 class="mb-0"><%= form.text_field :name, class: "form_input form-control", autocomplete: :off, autofocus: true, required: true %></h5>
+				</div>
+			</form>
 		<% end %>
 	</nav>
 

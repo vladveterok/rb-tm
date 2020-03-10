@@ -1,19 +1,18 @@
 
 <div id="container_<%= dom_id(project) %>">	
 <br>	
-	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>" class="list-group">
+
+	<nav class="navbar navbar-light bg-primary text-white" id="<%= dom_id(project) %>">
+		<span class="row project-list__project-name">
+			<h5 class="mb-0 col" style="word-wrap: break-word"><%= project.name%></h5>	
+		</span>
 		
-			<a class="navbar-brand text-light">	
-				<span class="project-list__project-name">
-					<h5 class="mb-0"><%= project.name %></h5>
-				</span>
-			</a>	
-				<span class="project-list__controls" float="right">
-					<%= link_to '<span class="icon bg-icon far fa-edit text-light"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %>
-					<%= link_to '<span class="icon bg-icon far fa-trash-alt text-light"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
-						remote: true, class: 'delete_project ml-2 mr-2' %>
-				</span>
-	</nav>		
+		<span class="project-list__controls" float="right">
+			<%= link_to '<span class="icon bg-icon far fa-edit text-light"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %>
+			<%= link_to '<span class="icon bg-icon far fa-trash-alt text-light"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1' },
+				remote: true, class: 'delete_project ml-2 mr-2' %>
+		</span>
+	</nav>
 					
 	<%= form_with model: @new_task, class: "task-form" do |f| %>
 		<div class="input-group mb-3 my-sm-1">
@@ -21,8 +20,8 @@
 			<%= f.text_field :name, placeholder: "What are you up to, buddy?", autocomplete: :off, required: true, 
 				data: { placeholder: :new_task_input, "project-id": project.id }, class: "form-control"%>
 						
-			<div id="project_button_<%= project.id %>" class="input-group-append">
-				<%= f.submit "Add Task", class: "btn btn-success my-2 my-sm-0" %>	
+			<div id="project_button_<%= project.id %>" class="input-group-append my-sm-0">
+				<%= f.submit "Add Task", class: "btn btn-success " %>	
 			</div>
 		</div>
 	<% end %>
@@ -38,9 +37,9 @@
 			<%= render project.tasks.completed %>
 		</ul>
 	</div>
-	<br>
+<br>
 	
-	</div>
+</div>
 	
 
 
