@@ -5,9 +5,7 @@ class Project < ApplicationRecord
   
   after_initialize :set_defaults
   
-def set_defaults
-  self.name ||= "Lovely new project ^_^"
-end
-  # -> { order(:position) },
-  #Project.order(created_at: :asc)
+  def set_defaults
+    self.name ||= "Lovely new project ^_^"
+  end
 end

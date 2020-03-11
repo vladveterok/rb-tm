@@ -74,12 +74,10 @@ class ProjectsController < ApplicationController
     else
       @arr
     end
-      #byebug
     
     # get projects with "a" in the middle
     @projects_with_a = []
     @projects_by_tasks_desc.each do |project|
-      #byebug
         @middle = ''
       if project.name.length.even?
         @middle = project.name[project.name.length/2-1] + project.name[project.name.length/2]

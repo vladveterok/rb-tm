@@ -1,4 +1,3 @@
-$VERBOSE=nil #################### !!!!!!!!! DELETE BEFORE DEPLOYING !!!!!!!!!!! ####################
 require_relative 'boot'
 
 require 'rails/all'

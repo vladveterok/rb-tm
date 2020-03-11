@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
     <style type="text/css">
-    
     body, html { 
       height: 100%;
 
@@ -17,7 +15,7 @@
       -o-background-size: cover;
       background-size: cover;
       background-attachment: fixed;
-      } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+      }
     </style>
 
     <title>RubyDo</title>
@@ -27,19 +25,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!—!!! REF02 !!!—>
+  
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
-    <!-- TESTING LINKS TO CUSTOM SCSS FILES -->
     <%= stylesheet_link_tag "title" %>
     <%= stylesheet_link_tag "button" %>
     <%= stylesheet_link_tag "container" %>
     <%= stylesheet_link_tag "link" %>
     <%= stylesheet_link_tag "task_form" %>
     <%= stylesheet_link_tag "task_list" %>
-    <!-- END TESTING LINKS TO CUSTOM SCSS FILES -->
 
-    <!--!!! REF01 !!!-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://kit.fontawesome.com/f6764a97a3.js" crossorigin="anonymous"></script>
@@ -81,8 +76,5 @@
         });
       };
     </script>
-    
-
-
   </body>
 </html>
