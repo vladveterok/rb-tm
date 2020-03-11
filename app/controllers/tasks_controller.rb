@@ -8,7 +8,6 @@ class TasksController < ApplicationController
     params[:task].each_with_index do |id, index|
       Task.where(id: id).update_all(position: index + 1)
     end
-
     head :ok
   end
   # GET /tasks/1
