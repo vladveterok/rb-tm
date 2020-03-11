@@ -5,13 +5,11 @@ one:
   completed: false
   position: 1
   deadline: 2020-02-28 15:58:34
-  project_id: 980190962
-  project: one
+  project: project_01
 
 two:
   name: MyString
   completed: false
   position: 1
   deadline: 2020-02-28 15:58:34
-  project_id: 298486374
-  project: two
+  project: project_02

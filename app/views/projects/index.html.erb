@@ -21,7 +21,7 @@
  <div id= "add-todo-button" class="text-center pb-5 pt-3 ">
       <%= form_with(model: @new_project, remote: true) do |form| %>
           <%= form.hidden_field :user_id, :value => current_user.id %>
-          <%= form.submit "Add TODO List", class: "btn btn-primary" %>
+          <%= form.submit "Add TODO List", class: "btn btn-primary", id: "add-todo-list" %>
       <% end %>
   </div>
 

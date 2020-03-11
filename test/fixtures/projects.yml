@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+project_01:
   name: MyString
-  user: one
+  user: test_user_01
 
-two:
+project_02:
   name: MyString
-  user: two
+  user: test_user_02

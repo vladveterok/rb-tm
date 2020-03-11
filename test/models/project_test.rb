@@ -20,4 +20,23 @@ class ProjectTest < ActiveSupport::TestCase
     project = @user.projects.new
     assert project.save, "Didn't saved the project with a user_id and a name"
   end
+
+  test "should update project" do
+    project = @user.projects.new
+    project.update(name: 'I have a new name')
+    project.save
+    assert_equal 'I have a new name', project.name, "Didn't update the project name"
+  end
+
+  test "should not update project adding empty name" do
+    project = @user.projects.new
+    project.save
+    assert_not project.update(name: '')
+  end
+
+  test "should destroy project" do
+    project = @user.projects.new
+    project.destroy
+    assert_not_includes projects, project, "Didn't destroy the project"
+  end
 end

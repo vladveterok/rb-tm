@@ -2,24 +2,29 @@ require "application_system_test_case"
 
 class ProjectsTest < ApplicationSystemTestCase
   setup do
-    @project = projects(:one)
+    @user = users(:test_user_01)
+    @project = projects(:project_01)
+  end
+
+  test "visiting the sign_in" do
+    visit new_user_session_path
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.encrypted_password
+    click_on "Log in"
   end
 
   test "visiting the index" do
     visit projects_url
-    assert_selector "h1", text: "Projects"
+    assert_selector "h1", text: "RubyDo"
   end
 
   test "creating a Project" do
     visit projects_url
-    click_on "New Project"
+    click_on "add-todo-list"
 
-    fill_in "Name", with: @project.name
-    fill_in "User", with: @project.user_id
-    click_on "Create Project"
+    fill_in "new-project-name", with: @project.name
 
-    assert_text "Project was successfully created"
-    click_on "Back"
+    assert_text "MyString"
   end
 
   test "updating a Project" do

@@ -4,7 +4,7 @@
 		<%= form_with model: project, class: "project_form" do |form| %>
 			<form class="d-inline w-100">
 				<div class="table-cell fill-width">
-				<h5 class="mb-0"><%= form.text_field :name, class: "form_input form-control", autocomplete: :off, autofocus: true, required: true %></h5>
+				<h5 id="new-project-name" class="mb-0"><%= form.text_field :name, class: "form_input form-control", autocomplete: :off, autofocus: true, required: true %></h5>
 				</div>
 			</form>
 		<% end %>
