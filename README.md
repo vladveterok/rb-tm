@@ -45,18 +45,18 @@ yarn upgrade
 7. Enjoy the masterpiece of ugliness, perfection of imperfection, Frankenstein of web development.   
 
 ## Tests
-To carry out the couple of tests that I made actually make run ```bin/rails test test/models```
+To carry out the couple of tests that I actually made run ```bin/rails test test/models```
 
 ## What is not done
 - It does absolutely NOT look like on referential screen.
-- Only silly simple tests are done covering CRUD  functionality for existing models. Reall, efficient, like dead-serious tests are not. Sadly. 
+- Only silly simple tests are done covering CRUD functionality for existing models. Reall, efficient, like dead-serious tests are not. Sadly. 
 - SQL tasks are not implemented as API (and I'm not sure you wanted them as API, but, again, they are not). To see the implementation, check ```count_projects``` method in ```projects_controller.rb```. To see the result, use ```sql tasks``` link on ```projects``` page.
 
 ## Known bugs
-- When you want to drag-n-drop a newly created or edited task, it is not responding on the first click on it, only on second click.
+- When you want to drag-n-drop a newly created or edited task, it is not responding on the first click on it, only on the next one.
 - Forms for editing projects and tasks are too small. I hate it. But css and bootstrap kicked my ars.
 - Date_selector for task-deadlines is ugly as f... well, very, very ugly. As ugly...
 - ...as sign-in/sign-up pages.
 
-Well, that's it, lets call it a day now.
+Well, that's it, let's call it a day now.
 Have a good one! :)
