@@ -2,14 +2,16 @@
 
 one:
   name: MyString
-  status: false
+  completed: false
   position: 1
   deadline: 2020-02-28 15:58:34
+  project_id: 980190962
   project: one
 
 two:
   name: MyString
-  status: false
+  completed: false
   position: 1
   deadline: 2020-02-28 15:58:34
+  project_id: 298486374
   project: two
