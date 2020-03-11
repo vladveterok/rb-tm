@@ -45,7 +45,7 @@ yarn upgrade
 7. Enjoy the masterpiece of ugliness, perfection of imperfection, Frankenstein of web development.   
 
 ## Tests
-To the couple of tests that I did actually make run ```bin/rails test test/models```
+To carry out the couple of tests that I did actually make run ```bin/rails test test/models```
 
 ## What is not done
 - It does absolutely NOT look like on referential screen.
