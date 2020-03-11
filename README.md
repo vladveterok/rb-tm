@@ -44,7 +44,7 @@ yarn upgrade
 6. Go to ```http://localhost:3000/```
 7. Enjoy the masterpiece of ugliness, perfection of imperfection, Frankenstein of web development.   
 
-## ## Tests
+## Tests
 To the couple of tests that I did actually make run ```bin/rails test test/models```
 
 ## What is not done
