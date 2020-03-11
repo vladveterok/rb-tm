@@ -41,7 +41,7 @@ yarn upgrade
 
 
 5. Run ```bin/rails s```
-6. Go to http://localhost:3000/```
+6. Go to ```http://localhost:3000/```
 7. Enjoy the masterpiece of ugliness, perfection of imperfection, Frankenstein of web development.   
 
 ## ## Tests
