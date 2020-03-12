@@ -57,7 +57,7 @@ To carry out the couple of tests that I actually made run ```bin/rails test test
 
 ## Known bugs
 - When you want to drag-n-drop a newly created or edited task, it is not responding on the first click on it, only on the next one.
-- Forms for editing projects and tasks are too small. I hate it. But css and bootstrap kicked my ars.
+- Forms for editing projects and tasks are too small. I hate it. But css and bootstrap kicked my arse.
 - Date_selector for task-deadlines is ugly as f... well, very, very ugly. As ugly...
 - ...as sign-in/sign-up pages.
 
