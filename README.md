@@ -3,7 +3,9 @@
 For Ruby Garage
 
 ## Disclaimer
-This is the very first project I've ever made. So, let's get this straight: if inexperienced rookies are not in the scope of your educational program, please, PLEASE, under any circumstances do not open this project. It's ugly, it's messed up, it's Frankensteinian, it can kill you. So, for the love of God, for anyone's sake, and for your eyes and sanity, just don't. Otherwise, best of luck to you in this journey.     
+This is the very first project I've ever made. So, let's get this straight: if inexperienced rookies are not in the scope of your educational program, please, PLEASE, under any circumstances do not open this project. It's ugly, it's messed up, it's Frankensteinian, it can kill you. So, for the love of God, for anyone's sake, and for your eyes and sanity, just don't. Otherwise, best of luck to you in this journey.
+
+https://rubydobido.herokuapp.com/
 
 ## Requirements
 

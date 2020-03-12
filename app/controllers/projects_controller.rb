@@ -62,7 +62,6 @@ class ProjectsController < ApplicationController
 
     # get all tasks with duplicate name
     @tasks_duplicate_names = Task.order(:name).where(name: Task.select(:name).group(:name).having("count(*) > 1"))
-    #Task.order(:name).select(:name).group(:name).having("count(*) > 1")
 
     # get all tasks with multiple matches ordered by number of matches
     @arr = []
