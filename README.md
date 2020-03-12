@@ -60,6 +60,7 @@ To carry out the couple of tests that I actually made run ```bin/rails test test
 - Forms for editing projects and tasks are too small. I hate it. But css and bootstrap kicked my arse.
 - Date_selector for task-deadlines is ugly as f... well, very, very ugly. As ugly...
 - ...as sign-in/sign-up pages.
+- Application is not tested properly on physical devises, and still, chrome responsive mode shows a slight problem with a page positioning on an iPhone SE sized screen.
 
 Well, that's it, let's call it a day now.
 Have a good one! :)
