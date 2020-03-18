@@ -52,13 +52,15 @@ To carry out the couple of tests that I actually made run ```bin/rails test test
 ## What is not done
 - It does absolutely NOT look like on referential screen.
 - Only silly simple tests are done covering CRUD functionality for existing models. Reall, efficient, like dead-serious tests are not. Sadly. 
-- SQL tasks are not implemented as API (and I'm not sure you wanted them as API, but, again, they are not). To see the implementation, check ```count_projects``` method in ```projects_controller.rb```. To see the result, use ```sql tasks``` link on ```projects``` page.
+- SQL tasks are not implemented as API (and I'm not sure you wanted them as API, but, again, they are not). To see the implementation, check ```count_projects``` method in ```projects_controller.rb``` or simply check out the [SQL-tasks.md](https://github.com/vladveterok/rb-tm/blob/master/SQL-tasks.md). To see the result, use ```sql tasks``` link on the ```/projects``` page.
+- SQL task "get all statuses, not repeating, alphabetically ordered" is not done. I just didn't get it for I have only two statuses for my tasks and they are: completed: true and completed: false.
 
 ## Known bugs
 - When you want to drag-n-drop a newly created or edited task, it is not responding on the first click on it, only on the next one.
-- Forms for editing projects and tasks are too small. I hate it. But css and bootstrap kicked my ars.
+- Forms for editing projects and tasks are too small. I hate it. But css and bootstrap kicked my arse.
 - Date_selector for task-deadlines is ugly as f... well, very, very ugly. As ugly...
 - ...as sign-in/sign-up pages.
+- Application is not tested properly on physical devises, and still, chrome responsive mode shows a slight problem with a page positioning on an iPhone SE sized screen.
 
 Well, that's it, let's call it a day now.
 Have a good one! :)
