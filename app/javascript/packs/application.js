@@ -16,6 +16,7 @@ import $ from 'jquery'
 global.$ = $
 global.jQuery = $
 
+// for jquery
 require('jquery-ui-dist/jquery-ui')
 
 // jquery-ui theme
