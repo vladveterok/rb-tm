@@ -6,7 +6,6 @@ ruby '2.7.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 
-gem 'jquery-ui-rails'
 gem "acts_as_list"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

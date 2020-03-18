@@ -12,10 +12,21 @@ require("jquery")
 import "bootstrap"
 import "../stylesheets/application"
 
+import $ from 'jquery'
+global.$ = $
+global.jQuery = $
+
+require('jquery-ui-dist/jquery-ui')
+
+// jquery-ui theme
+require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.css/ );
+require.context('file-loader?name=[path][name].[ext]&context=node_modules/jquery-ui-dist!jquery-ui-dist', true,    /jquery-ui\.theme\.css/ );
+
 document.addEventListener("turbolinks:load", () => {
 	$('[data-toggle="tooltip"]').tooltip()
 	$('[data-toggle="tooltip"]').popover()
 })
+
 
 
 
