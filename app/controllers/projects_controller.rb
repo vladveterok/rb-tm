@@ -51,17 +51,21 @@ class ProjectsController < ApplicationController
   end
 
   def count_projects
-    # get and sort projects by number of tasks
+    # get and sort projects by number of tasks -- count
     @projects_by_tasks_desc = Project.order(tasks_count: :desc).all
+    # it's not count => Project.connection.select_all("SELECT \"projects\".* FROM \"projects\" ORDER BY \"projects\".\"tasks_count\" DESC")
 
     # get and sort projects by name
     @projects_by_name = Project.order(:name).all
+    # => Project.connection.select_all("SELECT \"projects\".* FROM \"projects\" ORDER BY \"projects\".\"name\" ASC")
 
     # get projects with name starts with "/^[nN]/"
     @projects_by_n = Project.where("name ~ ?", '^[nN]' )
+    # => Project.connection.select_all("SELECT \"projects\".* FROM \"projects\" WHERE (name ~ '^[nN]')")
 
     # get all tasks with duplicate name
     @tasks_duplicate_names = Task.order(:name).where(name: Task.select(:name).group(:name).having("count(*) > 1"))
+    # => Project.connection.select_all("SELECT \"tasks\".* FROM \"tasks\" WHERE \"tasks\".\"name\" IN (SELECT \"tasks\".\"name\" FROM \"tasks\" GROUP BY \"tasks\".\"name\" HAVING (count(*) > 1)) ORDER BY \"tasks\".\"name\" ASC")
 
     # get all tasks with multiple matches ordered by number of matches
     @arr = []
@@ -73,11 +77,11 @@ class ProjectsController < ApplicationController
     else
       @arr
     end
-    
+
     # get projects with "a" in the middle
     @projects_with_a = []
     @projects_by_tasks_desc.each do |project|
-        @middle = ''
+      @middle = ''
       if project.name.length.even?
         @middle = project.name[project.name.length/2-1] + project.name[project.name.length/2]
       else
@@ -98,20 +102,19 @@ class ProjectsController < ApplicationController
         @projects_with_completed << project
       end
     end
-   
-    
+
+
   end
 
-
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(:name, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:name, :user_id)
+  end
 end

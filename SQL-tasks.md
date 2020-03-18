@@ -1,50 +1,26 @@
 # SQL Tasks
 
-## get and sort projects by number of tasks:
-    @projects_by_tasks_desc = Project.order(tasks_count: :desc).all
+### get all statuses, not repeating, alphabetically ordered:
+    SELECT DISTINCT tasks.completed FROM tasks ORDER BY tasks.completed ASC;
 
-## get and sort projects by name:
-    @projects_by_name = Project.order(:name).all
+### get the count of all tasks in each project, order by tasks count descending:
+    SELECT name, tasks_count FROM projects ORDER BY projects.tasks_count DESC;
 
-## get projects with name starts with "/^[nN]/":
-    @projects_by_n = Project.where("name ~ ?", '^[nN]' )
+### get the count of all tasks in each project, order by projects names:
+    SELECT name, tasks_count FROM projects ORDER BY projects.name;
 
-## get all tasks with duplicate name:
-    @tasks_duplicate_names = Task.order(:name).where(name: Task.select(:name).group(:name).having("count(*) > 1"))
-    #Task.order(:name).select(:name).group(:name).having("count(*) > 1")
+### get the tasks for all projects having the name beginning with "N" letter:
+    SELECT tasks.name FROM tasks, projects WHERE project_id = projects.id AND projects.name ~ '^[nN]';
 
-## get all tasks with multiple matches ordered by number of matches:
-    @arr = []
-    project = Project.find_by(name: 'Garage')
-    if project
-      tasks_duplicate_in_garage = project.tasks.select(:completed, :name).group(:completed,
-        :name).having("count(*) > 1").size
-      @arr = tasks_duplicate_in_garage.sort_by{|r,v|v}.reverse
-    else
-      @arr
-    end
+### get the list of project names having more than 10 tasks in status 'completed'. Order by project_id:
+    SELECT projects.name FROM projects JOIN tasks ON tasks.project_id = projects.id WHERE tasks.completed GROUP BY projects.id HAVING COUNT(tasks) > 10 ORDER BY projects.id;
     
-## get projects with "a" in the middle:
-    @projects_with_a = []
-    @projects_by_tasks_desc.each do |project|
-        @middle = ''
-      if project.name.length.even?
-        @middle = project.name[project.name.length/2-1] + project.name[project.name.length/2]
-      else
-        @middle = project.name[project.name.length/2]
-      end
+### get list of tasks having several exact matches of both name and status, from the project 'Garage'. Order by matches count:
+    SELECT tasks.name, tasks.completed, COUNT(*) AS "matches" FROM projects JOIN tasks ON tasks.project_id = projects.id WHERE projects.name = 'Garage' GROUP BY tasks.name, tasks.completed HAVING COUNT(*) > 1 ORDER BY "matches" DESC;
 
-      if @middle.include?("a")
-        @projects_with_a << project
-      end
-    end
+### get the list of tasks with duplicate names. Order alphabetically:
+    SELECT * FROM tasks WHERE tasks.name IN(SELECT tasks.name FROM tasks GROUP BY tasks.name HAVING (count(*) > 1)) ORDER BY tasks.name;
 
-## get projects with more than 10 completed tasks:
-    @projects_by_project_id = Project.order(:id).all
-    @projects_with_completed = []
+### get the list of all projects containing the 'a' letter in the middle of the name, and show the tasks count near each project. Mention that there can exist projects without tasks and tasks with project_id = NULL:
+    SELECT name, tasks_count FROM projects WHERE name LIKE '%a%';
 
-    @projects_by_project_id.each do |project|
-      if project.tasks.completed.count > 10
-        @projects_with_completed << project
-      end
-    end
