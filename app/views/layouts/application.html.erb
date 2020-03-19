@@ -2,20 +2,7 @@
 <html>
   <head>
     <style type="text/css">
-    body, html { 
-      height: 100%;
 
-      background: rgb(217,122,0);
-      background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%); 
-      
-      background-position: center;
-      background-repeat: no-repeat;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      background-attachment: fixed;
-      }
     </style>
 
     <title>RubyDo</title>
@@ -23,17 +10,8 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
-    <%= stylesheet_link_tag "title" %>
-    <%= stylesheet_link_tag "button" %>
-    <%= stylesheet_link_tag "container" %>
-    <%= stylesheet_link_tag "link" %>
-    <%= stylesheet_link_tag "task_form" %>
-    <%= stylesheet_link_tag "task_list" %>
     
     <script src="https://kit.fontawesome.com/f6764a97a3.js" crossorigin="anonymous"></script>
 
@@ -54,5 +32,20 @@
             </div>
           </div> 
     </div>
+ 
+
+    <script>
+      function mySorting() {
+        $(".list-group").sortable({
+          update: function(e, ui) {
+            $.ajax({
+              url:  $(this).data("url"),
+              type: "PATCH",
+              data: $(this).sortable('serialize'),
+            });
+          }
+        });
+      };
+    </script>
   </body>
 </html>

@@ -1,0 +1,14 @@
+body, html { 
+  height: 100%;
+
+  background: rgb(217,122,0);
+  background: linear-gradient(0deg, rgba(217,122,0,1) 0%, rgba(255,253,251,1) 86%); 
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  }
