@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style type="text/css">
-
-    </style>
 
     <title>RubyDo</title>
     <%= csrf_meta_tags %>
@@ -35,17 +32,7 @@
  
 
     <script>
-      function mySorting() {
-        $(".list-group").sortable({
-          update: function(e, ui) {
-            $.ajax({
-              url:  $(this).data("url"),
-              type: "PATCH",
-              data: $(this).sortable('serialize'),
-            });
-          }
-        });
-      };
+      
     </script>
   </body>
 </html>
