@@ -4,8 +4,8 @@
 	</span>
 			
 	<span class="project-list__controls" float="right">
-		<%= link_to '<span class="far fa-edit text-light"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %>
-		<%= link_to '<span class="far fa-trash-alt text-light"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1!11' },
+		<%= link_to '<span class="icon bg-icon far fa-edit text-light"></span>'.html_safe, edit_project_path(project), class: "link", remote: true %>
+		<%= link_to '<span class="icon bg-icon far fa-trash-alt text-light"></span>'.html_safe, project, method: :delete, data: { confirm: 'Are you sure?1!11' },
 			remote: true, class: 'delete_project ml-2 mr-2' %>
 	</span>
 </nav>
